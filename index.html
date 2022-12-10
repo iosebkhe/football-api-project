@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <script defer src="script.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="container">
+      <!-- Card -->
+      <div class="card">
+        <!-- Filters: All, League, Cup, Date  -->
+        <div class="filters">
+          <div class="filters__league">
+            <button class="btn filter btn-active" id="all">All</button>
+            <button class="btn filter" id="league">League</button>
+            <button class="btn filter" id="cup">Cup</button>
+          </div>
+          <div class="filters__date">
+            <button class="btn filters__date-box">
+              <span class="filters__date-year" id="year">2022</span>
+              <img
+                src="./images/calendar-blank.svg"
+                alt="calendar icon"
+                class="filters__date-icon"
+              />
+            </button>
+            <ul class="filters__date-dropdown">
+              <li class="filters__date-dropdown--item item-0 date-active">
+                2022
+              </li>
+              <li class="filters__date-dropdown--item item-0">2021</li>
+              <li class="filters__date-dropdown--item item-1">2020</li>
+              <li class="filters__date-dropdown--item item-2">2019</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Leagues Box-->
+        <div class="leagues"></div>
+      </div>
+    </section>
+  </body>
+</html>

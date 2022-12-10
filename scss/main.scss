@@ -1,0 +1,280 @@
+@use "./variables" as *;
+@use "./reset" as *;
+@use "./mixins" as *;
+@use "./query" as *;
+
+body {
+  font-family: $open-sans;
+  background-color: $black-full;
+  font-size: 1.4rem;
+
+  color: white;
+}
+
+// Container Style
+.container {
+  background-color: $gray-dark;
+  max-width: 75rem;
+  margin: 0 auto;
+  margin-top: 8rem;
+  border-top-left-radius: 3.2rem;
+  border-top-right-radius: 3.2rem;
+}
+
+// Card Style
+.card {
+  padding-inline: 2.4rem;
+  padding-top: 2.4rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+// Btn Style
+.btn {
+  font-family: inherit;
+  font-weight: $bold;
+  font-size: 1.4rem;
+  border: none;
+  background-color: $gray-lighter;
+  color: $gray-light;
+  border-radius: 1.6rem;
+  padding: 1.1rem 1.8rem;
+  height: 3.8rem;
+  cursor: pointer;
+  transition: all 150ms ease;
+
+  display: flex;
+  align-items: center;
+}
+
+// Filter Style
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__league {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  &__date {
+    position: relative;
+    color: $gray-light;
+
+    &-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    &-year {
+      display: none;
+
+      @include desktop {
+        display: block;
+      }
+    }
+
+    &-icon {
+      width: 1.6rem;
+      height: 1.6rem;
+
+      @include desktop {
+        width: 1.7rem;
+        height: 1.7rem;
+      }
+    }
+
+    &-dropdown {
+      position: absolute;
+      right: 0;
+      list-style: none;
+      font-weight: $bold;
+      background-color: $gray-lighter;
+      padding: 1.2rem 1.8rem;
+      margin-top: 1.2rem;
+      border-radius: 1.6rem;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 150ms ease;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+}
+
+// Leagues Style
+.leagues {
+  padding-bottom: 4rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.league {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  // Info Style
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  &__logo {
+    margin-left: 0.5rem;
+
+    > img {
+      display: block;
+      width: 4.8rem;
+      height: 4.8rem;
+      max-width: 100%;
+    }
+  }
+
+  &__name {
+    font-size: 1.4rem;
+    font-weight: $normal;
+  }
+
+  &__country {
+    font-size: 1.2rem;
+    font-weight: $normal;
+    color: $gray-light;
+  }
+
+  &__arrow {
+    margin-left: auto;
+    display: flex;
+    height: 2.9rem;
+    cursor: pointer;
+
+    &:hover {
+      filter: invert(31%) sepia(85%) saturate(5348%) hue-rotate(339deg)
+        brightness(93%) contrast(95%);
+    }
+
+    > .icon {
+      display: block;
+    }
+  }
+
+  // Game Style
+  &__game {
+    border: 0.2rem solid $gray-lighter;
+    font-size: 1.2rem;
+    padding: 1.4rem 1.8rem;
+    border-radius: 1.6rem;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    @include desktop {
+      font-size: 1.4rem;
+      gap: 4.4rem;
+    }
+
+    &-time {
+      color: $red-bright;
+      font-weight: $normal;
+
+      @include flex();
+    }
+
+    &-fav {
+      display: none;
+      // @include icon-styles-desktop();
+
+      @include desktop {
+        @include icon-styles-desktop();
+      }
+    }
+
+    &-info {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      height: 2rem;
+    }
+
+    &-logo {
+      height: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      > img {
+        max-width: 80%;
+
+        display: block;
+      }
+    }
+
+    &-team {
+      font-weight: $thin;
+      width: 100%;
+      text-align: center;
+    }
+
+    &-score {
+      background-color: $gray-lighter;
+      font-size: 1rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 10rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+
+      @include desktop {
+        font-size: 1.3rem;
+        padding: 0.8rem 1.4rem;
+      }
+    }
+
+    &-icons {
+      display: none;
+      fill: $red;
+
+      @include desktop {
+        @include flex();
+      }
+    }
+
+    &-icon {
+      @include icon-styles-desktop();
+    }
+  }
+}
+
+// helper classes
+.btn-active {
+  background-color: $red;
+  color: $white;
+}
+
+.date-active {
+  color: $red;
+}
+
+.dropdown-active {
+  opacity: 1;
+  pointer-events: auto;
+}

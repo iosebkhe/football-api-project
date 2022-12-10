@@ -1,0 +1,7 @@
+$dsk: 48em;
+
+@mixin desktop {
+  @media only screen and (min-width: $dsk) {
+    @content;
+  }
+}

@@ -1,0 +1,17 @@
+@mixin flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+@mixin icon-styles-desktop {
+  display: block;
+  width: 1.7rem;
+  height: 1.7rem;
+
+  &:hover {
+    filter: invert(31%) sepia(85%) saturate(5348%) hue-rotate(339deg)
+      brightness(93%) contrast(95%);
+  }
+}
